@@ -1,11 +1,23 @@
 <!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
     <meta charset="utf-8" />
     <title>Munros</title>
+    <link rel="stylesheet" href="css/site.css" />
+    <link rel="stylesheet" href="css/leaflet.css" />
+    <script src="js/leaflet.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/site.js"></script>
 </head>
-<body>
-    <h1>Coming soon!</h1>
-</body>
+
+    <body>
+        <div id="map"></div>
+    </body>
+    
+    <script type="text/javascript">
+        munros.initialize('map');
+    </script>
+
 </html>
