@@ -1,6 +1,7 @@
 app = {
 
     showMap: function(mapId) {
+        return;
         var mymap = L.map(mapId).setView([56.666933, -4.100229], 7);
 
         L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
@@ -16,13 +17,13 @@ app = {
         table.innerHTML =
             "<thead>" +
             "    <tr>" +
-            "        <td>Number</td>" +
-            "        <td>Name</td>" +
-            "        <td>Region</td>" +
-            "        <td>Meaning</td>" +
-            "        <td>Height (m)</td>" +
-            "        <td>Climbed</td>" +
-            "        <td>Date</td>" +
+            "        <th>Number</th>" +
+            "        <th>Name</th>" +
+            "        <th>Region</th>" +
+            "        <th>Meaning</th>" +
+            "        <th>Height (m)</th>" +
+            "        <th>Climbed</th>" +
+            "        <th>Date</th>" +
             "    </tr>" +
             "</thead>";
             "<tbody>";
