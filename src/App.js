@@ -5,8 +5,8 @@ import Map from './Map'
 class App extends Component {
   render() {
     return (
-      <div>
-        <Map />
+      <div class="full-height">
+        <Map className="full-height" />
       </div>
     );
   }
