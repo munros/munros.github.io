@@ -1,0 +1,20 @@
+{
+    "name": "The Munros",
+    "short_name": "The Munros",
+    "icons": [
+        {
+            "src": "/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/android-chrome-256x256.png",
+            "sizes": "256x256",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#dcdcdc",
+    "background_color": "#dcdcdc",
+    "start_url": "https://munros.github.io/",
+    "display": "standalone"
+}
