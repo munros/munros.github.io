@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
-import { Map as LeafletMap, TileLayer, Marker, Popup, ScaleControl } from 'react-leaflet'
+import { Map as LeafletMap, TileLayer, Marker, Popup, ScaleControl, LayersControl } from 'react-leaflet'
+import {BingLayer} from 'react-leaflet-bing'
 import munros from './munros'
+
+const { BaseLayer, Overlay } = LayersControl
+const bing_key = "AlSKPg8No2B0KaFRWRnaJcQ-2Bigz5unXhdVT2WCyJbi1NSgtlpudnuXmuQYhHdM"
 
 export default class Map extends Component {
   state = {
@@ -21,10 +25,17 @@ export default class Map extends Component {
         minZoom={6}
         maxZoom={18}>
         <ScaleControl />
-        <TileLayer
-          url="https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}"
-          id="mapbox.run-bike-hike"
-          accessToken="pk.eyJ1IjoiZ3JhaGFtbSIsImEiOiJjamgyY2oxM2IwMzE5MzNsZm9hbHBlYmN5In0.JGqACEauh8OvrXNRm9tKnA" />
+        <LayersControl position="topright">
+          <BaseLayer checked name="Mapbox run/bike/hike">
+            <TileLayer
+              url="https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}"
+              id="mapbox.run-bike-hike"
+              accessToken="pk.eyJ1IjoiZ3JhaGFtbSIsImEiOiJjamgyY2oxM2IwMzE5MzNsZm9hbHBlYmN5In0.JGqACEauh8OvrXNRm9tKnA" />
+          </BaseLayer>
+          <BaseLayer name="Ordnance Survey">
+            <BingLayer  bingkey={bing_key} type="OrdnanceSurvey" minZoom="10" maxZoom="18" />
+          </BaseLayer>
+        </LayersControl>
         {
           munros.map((munro) => {
             return (
