@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Map as LeafletMap, TileLayer, Marker, Popup, ScaleControl, LayersControl } from 'react-leaflet'
+import { Map as LeafletMap, TileLayer, Marker, Popup, ScaleControl, LayersControl, LayerGroup } from 'react-leaflet'
 import {BingLayer} from 'react-leaflet-bing'
 import munros from './munros'
 
@@ -26,14 +26,27 @@ export default class Map extends Component {
         maxZoom={18}>
         <ScaleControl />
         <LayersControl position="topright">
-          <BaseLayer checked name="Mapbox run/bike/hike">
+          <BaseLayer checked name="Ordnance Survey">
+            <LayerGroup>
+              <TileLayer
+                  url="https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}"
+                  id="mapbox.streets"
+                  minZoom="6" maxZoom="9"
+                  accessToken="pk.eyJ1IjoiZ3JhaGFtbSIsImEiOiJjamgyY2oxM2IwMzE5MzNsZm9hbHBlYmN5In0.JGqACEauh8OvrXNRm9tKnA" />
+              <BingLayer  bingkey={bing_key} type="OrdnanceSurvey" minZoom="10" maxZoom="18" />
+            </LayerGroup>
+          </BaseLayer>
+          <BaseLayer name="Mapbox run/bike/hike">
             <TileLayer
               url="https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}"
               id="mapbox.run-bike-hike"
               accessToken="pk.eyJ1IjoiZ3JhaGFtbSIsImEiOiJjamgyY2oxM2IwMzE5MzNsZm9hbHBlYmN5In0.JGqACEauh8OvrXNRm9tKnA" />
           </BaseLayer>
-          <BaseLayer name="Ordnance Survey">
-            <BingLayer  bingkey={bing_key} type="OrdnanceSurvey" minZoom="10" maxZoom="18" />
+          <BaseLayer name="Aerial">
+            <TileLayer
+              url="https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}"
+              id="mapbox.streets-satellite"
+              accessToken="pk.eyJ1IjoiZ3JhaGFtbSIsImEiOiJjamgyY2oxM2IwMzE5MzNsZm9hbHBlYmN5In0.JGqACEauh8OvrXNRm9tKnA" />
           </BaseLayer>
         </LayersControl>
         {
