@@ -1,14 +1,31 @@
 import React, { Component } from "react"
 import { LayerGroup, Marker, Popup } from "react-leaflet"
-import munros from "./munros"
 
 export default class MunrosLayer extends Component {
+  constructor() {
+    super()
+    this.state = {munros: null}
+  }
+
+  componentDidMount() {
+    fetch("data/munros.json")
+      .then(response => {
+        if (response.ok) {
+          response.json().then(data => {
+            this.setState({munros: data})
+          })
+        }
+      })
+  }
 
   render() {
+
+    if (this.state.munros === null) { return null }
+
     return (
       <LayerGroup>
         {
-          munros.map((munro) => {
+          this.state.munros.map((munro) => {
             return (
               <Marker key={munro.number} position={[munro.latitude, munro.longitude]}>
                 <Popup>
