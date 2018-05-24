@@ -1,7 +1,6 @@
 import React, { Component } from "react"
 import { Map as LeafletMap, ScaleControl } from "react-leaflet"
 import LayersControl from "./LayersControl"
-//import munros from "./munros"
 
 export default class Map extends Component {
   state = {
