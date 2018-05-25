@@ -1,31 +1,24 @@
+import { connect } from "react-redux"
+import { bindActionCreators } from "redux"
+import * as mountainActions from "../actions/mountainActions"
+import PropTypes from "prop-types"
 import React, { Component } from "react"
 import { LayerGroup, Marker, Popup } from "react-leaflet"
 
-export default class MunrosLayer extends Component {
-  constructor() {
-    super()
-    this.state = {munros: null}
-  }
+class MunrosLayer extends Component {
 
   componentDidMount() {
-    fetch("data/munros.json")
-      .then(response => {
-        if (response.ok) {
-          response.json().then(data => {
-            this.setState({munros: data})
-          })
-        }
-      })
+    this.props.mountainActions.fetchMountains()
   }
 
   render() {
 
-    if (this.state.munros === null) { return null }
+    if (this.props.mountains.length === null) { return null }
 
     return (
       <LayerGroup>
         {
-          this.state.munros.map((munro) => {
+          this.props.mountains.map((munro) => {
             return (
               <Marker key={munro.number} position={[munro.latitude, munro.longitude]}>
                 <Popup>
@@ -49,3 +42,25 @@ export default class MunrosLayer extends Component {
     )
   }
 }
+
+MunrosLayer.propTypes = {
+  mountainActions: PropTypes.object,
+  mountains: PropTypes.array
+}
+
+function mapStateToProps(state) {
+  return {
+    mountains: state.mountains
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    mountainActions: bindActionCreators(mountainActions, dispatch)
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(MunrosLayer)
