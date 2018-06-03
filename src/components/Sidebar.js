@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import { Sidebar as LeafletSidebar, Tab } from "react-leaflet-sidebarv2"
 import "font-awesome/css/font-awesome.css"
+import FontAwesome from "react-fontawesome"
 import "./Sidebar.css";
 
 export default class Sidebar extends Component {
@@ -30,18 +31,7 @@ export default class Sidebar extends Component {
         <Tab id="home" header="Home" icon="fa fa-home" >
           <p>No place like home!</p>
         </Tab>
-        <Tab id="zoom-in" header="" icon="fa fa-plus" />
-        <Tab id="zoom-out" header="" icon="fa fa-minus" />
-        <Tab id="layers" header="Layers" icon="fa fa-map" >
-          <p>No place like home!</p>
-        </Tab>
-        <Tab id="search" header="Search" icon="fa fa-search" >
-          <p>No place like home!</p>
-        </Tab>
         <Tab id="settings" header="Settings" icon="fa fa-cog" anchor="bottom">
-          <p>Settings dialogue.</p>
-        </Tab>
-        <Tab id="about" header="About" icon="fa fa-info" anchor="bottom">
           <p>Settings dialogue.</p>
         </Tab>
       </LeafletSidebar>
