@@ -45,7 +45,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Models\MountainModel.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Readers\DobihCsvReader.cs" />
     <Compile Include="Input\InputFiles.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
