@@ -1,29 +1,33 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using ScotlandsMountains.StaticDataGenerator.Records;
 
 namespace ScotlandsMountains.StaticDataGenerator.Models
 {
-    public class MountainModel
+    public class MountainModel : EntityModel
     {
-        public MountainModel(DobihRecord record)
+        public MountainModel(DobihRecord record, ClassificationModel classification)
+            : base(record.Name)
         {
-            Json "number"//: 1,
-            //"name": "Ben Nevis",
-            //"regionNumber": 4,
-            //"regionName": "Loch Linnhe to Loch Ericht",
-            //"meaning": "Possibly from an old Gaelic word meaning venomous",
-            //"height": 1344,
-            //"latitude": 56.796825,
-            //"longitude": -5.003624,
-            //"landrangerMaps": [
-            //"41"
-            //    ],
-            //"explorerMaps": [
-            //"392"
-            //    ]
+            RegionNumber = record.RegionNumber;
+            RegionName = record.RegionName;
+            Height = record.Height;
+            Latitude = record.Latitude;
+            Longitude = record.Longitude;
+            LandrangerMaps = record.Maps1To50000.Select(x => x).ToList();
+            ExplorerMaps = record.Maps1To25000.Select(x => x).ToList();
+
+            Number = classification.Mountains.Count + 1;
+            classification.Mountains.Add(this);
         }
+
+        public int Number { get; }
+        public string RegionNumber { get; }
+        public string RegionName { get; }
+        public double Height { get; }
+        public double Latitude { get; }
+        public double Longitude { get; }
+        public List<string> LandrangerMaps { get; }
+        public List<string> ExplorerMaps { get; }
     }
+}
