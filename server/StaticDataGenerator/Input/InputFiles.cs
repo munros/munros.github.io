@@ -7,7 +7,5 @@ namespace ScotlandsMountains.StaticDataGenerator.Input
     {
         public static Stream DobihCsv => 
             Assembly.GetExecutingAssembly().GetManifestResourceStream(typeof(InputFiles).Namespace + ".hillcsv.zip");
-
-
     }
 }

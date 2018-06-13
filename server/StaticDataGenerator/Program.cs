@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using ScotlandsMountains.StaticDataGenerator.Input;
 using ScotlandsMountains.StaticDataGenerator.Models;
+using ScotlandsMountains.StaticDataGenerator.Output;
 using ScotlandsMountains.StaticDataGenerator.Readers;
 
 namespace ScotlandsMountains.StaticDataGenerator
@@ -10,6 +12,7 @@ namespace ScotlandsMountains.StaticDataGenerator
     {
         public static void Main(string[] args)
         {
+
             var dobihRecords = new DobihCsvReader()
                 .Read(InputFiles.DobihCsv)
                 .Where(x => x.Classification != null)
@@ -17,6 +20,7 @@ namespace ScotlandsMountains.StaticDataGenerator
                 .ToList();
 
             var classifications = new ModelFactory().CreateClassifications(dobihRecords);
+            OutputFiles.Write(classifications);
 
             Console.WriteLine("Press any key to exit...");
             Console.ReadKey(true);

@@ -58,6 +58,7 @@
     <Compile Include="Models\EntityModel.cs" />
     <Compile Include="Models\ModelFactory.cs" />
     <Compile Include="Models\MountainModel.cs" />
+    <Compile Include="Output\OutputFiles.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Readers\DobihCsvReader.cs" />
     <Compile Include="Input\InputFiles.cs" />
@@ -67,10 +68,11 @@
   <ItemGroup>
     <EmbeddedResource Include="Input\hillcsv.zip" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Output\" />
-  </ItemGroup>
-  <ItemGroup>
+    <None Include="Output\corbetts.json" />
+    <None Include="Output\grahams.json" />
+    <None Include="Output\munros.json" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
