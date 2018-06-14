@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import { TileLayer, LayersControl as LeafletLayersControl, LayerGroup } from "react-leaflet"
 import { BingLayer } from "react-leaflet-bing"
-import MunrosLayer from "./MunrosLayer"
+import MountainLayer from "./MountainLayer"
 
 const { BaseLayer, Overlay } = LeafletLayersControl
 const mapbox_url = "https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}"
@@ -35,7 +35,13 @@ export default class LayerControl extends Component {
             accessToken={mapbox_key} />
         </BaseLayer>
         <Overlay checked name="Munros">
-          <MunrosLayer />
+          <MountainLayer classification="Munros" />
+        </Overlay>
+        <Overlay name="Corbetts">
+          <MountainLayer classification="Corbetts" />
+        </Overlay>
+        <Overlay name="Grahams">
+          <MountainLayer classification="Grahams" />
         </Overlay>
       </LeafletLayersControl>
     )
