@@ -20,3 +20,23 @@ html, body, .full-height {height: 100%;}
 .leaflet-control-container .leaflet-top.leaflet-right {
     margin-top: 4.5em;
 }
+
+.map-marker div {
+    height: 1.4em;
+    width: 1.4em;
+    border-radius: 1em;
+    border: 0.05em solid darkslateblue;
+    box-shadow: 0.2em 0.2em 0.2em 0px rgb(0, 0, 0, 0.5);
+}
+
+.map-marker.munros div {
+    background-color: #8856a7;
+}
+
+.map-marker.corbetts div {
+    background-color: #9ebcda;
+}
+
+.map-marker.grahams div {
+    background-color: #e0ecf4;
+}
