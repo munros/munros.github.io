@@ -1,0 +1,24 @@
+* { font-family: 'Roboto', sans-serif; }
+
+html, body, .full-height {height: 100%;}
+
+.leaflet-control-container .leaflet-top {
+    @media (min-width:0px) { margin-top: 4.5em; }
+    @media (min-width:600px) { margin-top: 5.5em; }
+}
+
+.map-marker {
+    div {
+        height: 1.4em;
+        width: 1.4em;
+        border-radius: 1em;
+        border: 0.05em solid darkslateblue;
+        box-shadow: 0.2em 0.2em 0.2em 0px rgba(0, 0, 0, 0.5);
+    }
+    
+    &.munros div { background-color: #8856a7; }
+    &.corbetts div { background-color: #9ebcda; }
+    &.grahams div { background-color: #e0ecf4; }
+}
+
+

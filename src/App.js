@@ -23,10 +23,8 @@ class App extends Component {
   render() {
     return (
       <MuiThemeProvider theme={theme}>
-        <div className="full-height">
-          <Header />
-          <Map className="full-height" />
-        </div>
+        <Header />
+        <Map className="full-height" />
       </MuiThemeProvider>
     );
   }
