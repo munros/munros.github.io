@@ -17,9 +17,9 @@ export default class LayerControl extends Component {
             <TileLayer
               url={mapbox_url}
               id="mapbox.streets"
-              minZoom="6" maxZoom="10"
+              minZoom="6" maxZoom="11"
               accessToken={mapbox_key} />
-            <BingLayer bingkey={bing_key} type="OrdnanceSurvey" minZoom="11" maxZoom="18" />
+            <BingLayer bingkey={bing_key} type="OrdnanceSurvey" minZoom="12" maxZoom="18" />
           </LayerGroup>
         </BaseLayer>
         <BaseLayer name="Mapbox run/bike/hike">
