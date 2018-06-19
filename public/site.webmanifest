@@ -1,6 +1,6 @@
 {
-    "name": "The Munros",
-    "short_name": "The Munros",
+    "name": "Scotland's Mountains",
+    "short_name": "Scotland's Mountains",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",
@@ -8,13 +8,13 @@
             "type": "image/png"
         },
         {
-            "src": "/android-chrome-256x256.png",
-            "sizes": "256x256",
+            "src": "/android-chrome-512x512.png",
+            "sizes": "512x512",
             "type": "image/png"
         }
     ],
-    "theme_color": "#dcdcdc",
-    "background_color": "#dcdcdc",
-    "start_url": "https://munros.github.io/",
+    "theme_color": "#827717",
+    "background_color": "#827717",
+    "start_url": "https://scotlandsmountains.net",
     "display": "standalone"
 }
